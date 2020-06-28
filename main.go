@@ -1,9 +1,17 @@
 package main
 
-import "github.com/Lukaesebrot/mosquito/server"
+import (
+	"github.com/Lukaesebrot/mosquito/config"
+	"github.com/Lukaesebrot/mosquito/server"
+)
 
 func main() {
+	// Load the application configuration
+	err := config.LoadFromEnv()
+	if err != nil {
+		panic(err)
+	}
+
 	// Start the fasthttp server
-	// TODO: Make address configurable
-	server.Start(":8080")
+	server.Start(config.Current.Address)
 }
