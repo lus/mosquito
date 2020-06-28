@@ -12,4 +12,4 @@ services:
       MOS_DIRECTORY_INDEXES: 'true'
       MOS_INDEX_FILES: 'index.html;;index.htm'
     volumes:
-      - ./data:./data
+      - ./data:/root/data
