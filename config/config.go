@@ -26,4 +26,5 @@ func LoadFromEnv() error {
 	Current = &Config{
 		Address: os.Getenv("MOS_ADDRESS"),
 	}
+	return nil
 }
