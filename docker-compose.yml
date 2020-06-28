@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mosquito:
+    image: ksebrt/mosquito
+    container_name: mosquito
+    ports:
+      - '8080:8080'
+    environment:
+      MOS_ADDRESS: ':8080'
+      MOS_CACHE_DURATION: '20m'
+      MOS_DIRECTORY_INDEXES: 'true'
+    volumes:
+      - ./data:./data
