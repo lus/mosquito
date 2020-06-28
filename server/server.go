@@ -11,8 +11,9 @@ func Start(address string) {
 	// Create a new router
 	router := routing.New()
 	router.ServeFilesCustom("/{filepath:*}", &fasthttp.FS{
-		Root:          "./data",
-		CacheDuration: config.Current.CacheDuration,
+		Root:               "./data",
+		GenerateIndexPages: config.Current.DirectoryIndexes,
+		CacheDuration:      config.Current.CacheDuration,
 	})
 
 	// Start the fasthttp server
