@@ -23,6 +23,12 @@ func LoadFromEnv() {
 	// Load the .env file
 	godotenv.Load()
 
+	// Define the server address
+	address := os.Getenv("MOS_ADDRESS")
+	if address == "" {
+		address = ":8080"
+	}
+
 	// Parse the cache duration
 	cacheDuration, err := time.ParseDuration(os.Getenv("MOS_CACHE_DURATION"))
 	if err != nil {
