@@ -7,10 +7,7 @@ import (
 
 func main() {
 	// Load the application configuration
-	err := config.LoadFromEnv()
-	if err != nil {
-		panic(err)
-	}
+	config.LoadFromEnv()
 
 	// Start the fasthttp server
 	server.Start(config.Current.Address)
