@@ -3,6 +3,7 @@ package config
 import (
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -13,6 +14,7 @@ type Config struct {
 	Address          string
 	CacheDuration    time.Duration
 	DirectoryIndexes bool
+	IndexFiles       []string
 }
 
 // Current holds the current application configuration
@@ -39,10 +41,14 @@ func LoadFromEnv() {
 	// We don't need to handle errors here, because the fallback return value is 'false'
 	directoryIndexes, _ := strconv.ParseBool(os.Getenv("MOS_DIRECTORY_INDEXES"))
 
+	// Parse the index files
+	indexFiles := strings.Split(os.Getenv("MOS_INDEX_FILES"), ";;")
+
 	// Set the current configuration
 	Current = &Config{
 		Address:          os.Getenv("MOS_ADDRESS"),
 		CacheDuration:    cacheDuration,
 		DirectoryIndexes: directoryIndexes,
+		IndexFiles:       indexFiles,
 	}
 }

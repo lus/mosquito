@@ -6,8 +6,9 @@ I recommend deploying mosquito using Docker. The image is named `ksebrt/mosquito
 
 ## Configuration
 Configuration is achieved using the following environment variables:
-| Environment Variable    | Description                                         | Default value |
-|-------------------------|-----------------------------------------------------|---------------|
-| `MOS_ADDRESS`           | The address mosquito listens to                     | `:8080`       |
-| `MOS_CACHE_DURATION`    | The duration mosquito caches files for              | `10m`         |
-| `MOS_DIRECTORY_INDEXES` | Whether or not mosquito generates directory indexes | `false`       |
+| Environment Variable    | Description                                         | Default value | Example                 |
+|-------------------------|-----------------------------------------------------|---------------|-------------------------|
+| `MOS_ADDRESS`           | The address mosquito listens to                     | `:8080`       | `127.0.0.1:2255`        |
+| `MOS_CACHE_DURATION`    | The duration mosquito caches files for              | `10m`         | `20m10s`                |
+| `MOS_DIRECTORY_INDEXES` | Whether or not mosquito generates directory indexes | `false`       | `true`                  |
+| `MOS_INDEX_FILES`       | A list of index file names, separated by `;;`       | `<none>`      | `index.html;;index.htm` |

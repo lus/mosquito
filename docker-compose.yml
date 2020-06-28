@@ -10,5 +10,6 @@ services:
       MOS_ADDRESS: ':8080'
       MOS_CACHE_DURATION: '20m'
       MOS_DIRECTORY_INDEXES: 'true'
+      MOS_INDEX_FILES: 'index.html;;index.htm'
     volumes:
       - ./data:./data

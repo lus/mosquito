@@ -12,6 +12,7 @@ func Start(address string) {
 	router := routing.New()
 	router.ServeFilesCustom("/{filepath:*}", &fasthttp.FS{
 		Root:               "./data",
+		IndexNames:         config.Current.IndexFiles,
 		GenerateIndexPages: config.Current.DirectoryIndexes,
 		CacheDuration:      config.Current.CacheDuration,
 	})
