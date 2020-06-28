@@ -15,16 +15,12 @@ type Config struct {
 var Current *Config
 
 // LoadFromEnv loads the current configuration from the environment variables
-func LoadFromEnv() error {
+func LoadFromEnv() {
 	// Load the .env file
-	err := godotenv.Load()
-	if err != nil {
-		return err
-	}
+	godotenv.Load()
 
 	// Set the current configuration
 	Current = &Config{
 		Address: os.Getenv("MOS_ADDRESS"),
 	}
-	return nil
 }
