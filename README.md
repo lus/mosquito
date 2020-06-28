@@ -1,2 +1,2 @@
 # mosquito
-A simple and lightweight HTTP web server
+Mosquito is a simple and lightweight HTTP web server to serve and cache static files like assets.
